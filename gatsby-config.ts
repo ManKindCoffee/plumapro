@@ -8,6 +8,7 @@ declare const process: {
     [key: string]: string | undefined
   }
 }
+declare const __dirname: string
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const dotenv = require("dotenv")
