@@ -2,11 +2,12 @@
 type GatsbyConfig = any
 type PluginRef = any
 
-declare module "dotenv" {
-  export function config(options?: { path?: string; encoding?: string; debug?: boolean }): { error?: Error; parsed?: Record<string, string> }
-}
-
 declare function require(moduleName: string): any
+declare const process: {
+  env: {
+    [key: string]: string | undefined
+  }
+}
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const dotenv = require("dotenv")
