@@ -1,5 +1,17 @@
-import type { GatsbyConfig, PluginRef } from "gatsby"
-import "dotenv/config"
+// Minimal local type declarations for environments where Gatsby types may be missing.
+type GatsbyConfig = any
+type PluginRef = any
+
+declare module "dotenv" {
+  export function config(options?: { path?: string; encoding?: string; debug?: boolean }): { error?: Error; parsed?: Record<string, string> }
+}
+
+declare function require(moduleName: string): any
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const dotenv = require("dotenv")
+
+dotenv.config()
 
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
